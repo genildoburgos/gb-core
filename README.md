@@ -16,17 +16,6 @@ The goal of this hub is to create a single, evolving place to:
 - Centralize reusable tools and libraries.
 - Prototype features before moving them to larger projects.
 
-## Repository structure
-
-The repo is organized to separate responsibilities and make local testing easier:
-
-- `apps/` — applications and services (e.g. `api/`, `web/`).
-- `infra/` — infrastructure definitions, docker-compose and local infra scripts.
-- `volumes/` — persistent data/volumes for development.
-- `docker-compose.yml` — local orchestration to bring hub services up.
-
-> Note: each subproject inside `apps/` should include its own README with run instructions.
-
 ## Ideas to explore
 
 - Microservices with hot-reload for fast feedback.
@@ -40,10 +29,5 @@ This is primarily a personal workspace — contributions are welcome. Please ope
 ## Contact
 
 If you want to discuss any idea here: open an issue or find me via the contact in my profile.
-
----
-
-_GB Core — a small lab for big experiments._
-
 
 
