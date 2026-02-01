@@ -3,8 +3,6 @@ node_modules/
 *.pem
 *.key
 volumes/
-postgres_data/
-n8n_data/
 .n8n/
 dist/
 npm-debug.log
