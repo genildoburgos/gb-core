@@ -5,14 +5,20 @@ variable "aws_region" {
 }
 
 variable "bucket_name" {
-    description = "Nome do bucket principal para armaznar arquivos da api gb-core"
+    description = "Nome do bucket para armaznar imagens da api gb-core"
     type = string
-    default = "gb-core-bucket-1"
+    default = "gb-core-imagens"
 }
 
-variable "dynamodb_table_name" {
-    description = "Nome da tabla principal (teste) para api-gb-core"
+variable "table_users" {
+    description = "Nome da tabela de usuarios para autenticação da api gb-core"
     type = string
-    default = "gb-core-dynamodb-table"
+    default = "Users"
+}
+
+variable "table_images" {
+    description = "Nome da tabela de imagens para controle de imagens da api gb-core" 
+    type = string
+    default = "Images"
 }
 
