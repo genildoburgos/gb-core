@@ -1,8 +1,37 @@
+# --- Dependências e Logs ---
 node_modules/
+npm-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# --- Build e Distribuição ---
+dist/
+build/
+
+# --- Variáveis de Ambiente e Segredos ---
 .env
+.env.test
 *.pem
 *.key
+
+# --- Terraform (MUITO IMPORTANTE) ---
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+crash.log
+override.tf
+override.tf.json
+.terraform.lock.hcl # (Opcional: alguns times commitam isso, outros não. Para projetos solos, pode ignorar)
+
+# --- NestJS / Testes ---
+coverage/
+
+# --- Docker / Infra ---
 volumes/
 .n8n/
-dist/
-npm-debug.log
+
+# --- IDE e Sistema ---
+.DS_Store
+.vscode/
+.idea/
