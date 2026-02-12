@@ -5,7 +5,7 @@ variable "aws_region" {
 }
 
 variable "bucket_name" {
-    description = "Nome do bucket para armaznar imagens da api gb-core"
+    description = "Nome do bucket para armazenar imagens da api gb-core"
     type = string
     default = "gb-core-imagens"
 }
