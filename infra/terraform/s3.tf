@@ -38,3 +38,12 @@ resource "aws_s3_bucket_policy" "public_read" {
         aws_s3_bucket_public_access_block.api_bucket_public_access
     ]
 }
+resource "aws_s3_bucket_server_side_encryption_configuration" "api_bucket_encryption" {
+  bucket = aws_s3_bucket.api_bucket.id
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm = "AES256"
+    }
+  }
+}
