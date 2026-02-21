@@ -74,12 +74,10 @@ services:
       - internal-net
 
   api:
-    build:
-      context: ./apps/api
-      dockerfile: Dockerfile
+    image: genildodocker/api-gb-core
     restart: always
-    ports:
-      - "3000:3000"
+    expose:
+      - "3000"
     env_file:
       - .env
     environment:
