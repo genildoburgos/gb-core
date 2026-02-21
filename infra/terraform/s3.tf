@@ -30,17 +30,6 @@ resource "aws_s3_bucket_policy" "public_read" {
                 Principal = "*"
                 Action = ["s3:GetObject"]
                 Resource = "${aws_s3_bucket.api_bucket.arn}/*"
-            },
-            {
-                Sid = "DenyPublicWrite"
-                Effect = "Deny"
-                Principal = "*"
-                Action = [
-                "s3:PutObject",
-                "s3:DeleteObject",
-                "s3:PutObjectAcl"
-                ]
-                Resource = "${aws_s3_bucket.api_bucket.arn}/*"
             }
         ]
     })
