@@ -74,7 +74,7 @@ services:
       - internal-net
 
   api:
-    image:  genildodocker/api-gb-core
+    image: genildodocker/api-gb-core
     restart: always
     expose:
       - "3000"
