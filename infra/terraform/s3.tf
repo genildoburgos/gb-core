@@ -8,3 +8,50 @@ resource "aws_s3_bucket_ownership_controls" "api_bucket_ownership" {
         object_ownership = "BucketOwnerPreferred"
     }
 }
+
+resource "aws_s3_bucket_public_access_block" "api_bucket_public_access" {
+    bucket = aws_s3_bucket.api_bucket.id
+
+    block_public_acls       = false
+    block_public_policy     = false
+    ignore_public_acls      = false
+    restrict_public_buckets = false
+}
+
+resource "aws_s3_bucket_policy" "public_read" {
+    bucket = aws_s3_bucket.api_bucket.id
+
+    policy = jsonencode({
+        Version = "2012-10-17"
+        Statement = [
+            {
+                Sid = "PublicReadGetObject"
+                Effect = "Allow"
+                Principal = "*"
+                Action = ["s3:GetObject"]
+                Resource = "${aws_s3_bucket.api_bucket.arn}/*"
+            }
+        ]
+    })
+
+    depends_on = [
+        aws_s3_bucket_public_access_block.api_bucket_public_access
+    ]
+}
+resource "aws_s3_bucket_server_side_encryption_configuration" "api_bucket_encryption" {
+  bucket = aws_s3_bucket.api_bucket.id
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm = "AES256"
+    }
+  }
+}
+
+resource "aws_s3_bucket_versioning" "api_bucket_versioning" {
+  bucket = aws_s3_bucket.api_bucket.id
+
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
