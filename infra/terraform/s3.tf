@@ -47,3 +47,11 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "api_bucket_encryp
     }
   }
 }
+
+resource "aws_s3_bucket_versioning" "api_bucket_versioning" {
+  bucket = aws_s3_bucket.api_bucket.id
+
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
